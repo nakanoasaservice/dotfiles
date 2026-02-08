@@ -85,6 +85,8 @@
                 tldr
                 helix
                 gnupg
+                jq
+                ijq
               ];
             };
           };
