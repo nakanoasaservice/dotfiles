@@ -7,6 +7,9 @@
       "nixpkgs": {
         "expr": "import (builtins.getFlake \"${workspaceFolder}\").inputs.nixpkgs { }"
       },
+      "formatting": {
+        "command": ["/etc/profiles/per-user/nakano/bin/nixfmt"],
+      },
       "options": {
         "home-manager-darwin": {
           "expr": "(builtins.getFlake \"${workspaceFolder}\").darwinConfigurations.nakano-mbp.options.home-manager.users.type.getSubOptions []"

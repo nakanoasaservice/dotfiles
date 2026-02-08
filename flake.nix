@@ -15,107 +15,116 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
-  let
-    hostname = "nakano-mbp";
-    username = "nakano";
-    system = "aarch64-darwin";
+  outputs =
+    inputs@{
+      self,
+      nix-darwin,
+      nixpkgs,
+      home-manager,
+    }:
+    let
+      hostname = "nakano-mbp";
+      username = "nakano";
+      system = "aarch64-darwin";
 
-    pkgs = import nixpkgs {
-      inherit system;
-    };
-
-    configuration = { pkgs, ... }: {
-      # List packages installed in system profile. To search by name, run:
-      # $ nix-env -qaP | grep wget
-      environment.systemPackages =
-        [ pkgs.vim
-        ];
-
-      # Necessary for using flakes on this system.
-      nix.settings.experimental-features = "nix-command flakes";
-
-      # Enable alternative shell support in nix-darwin.
-      programs.fish.enable = true;
-
-      # Set Git commit hash for darwin-version.
-      system.configurationRevision = self.rev or self.dirtyRev or null;
-
-      # Used for backwards compatibility, please read the changelog before changing.
-      # $ darwin-rebuild changelog
-      system.stateVersion = 6;
-
-      # The platform the configuration will be used on.
-      nixpkgs.hostPlatform = system;
-
-      users.users.${username} = {
-        shell = pkgs.fish;
-        home = "/Users/${username}";
+      pkgs = import nixpkgs {
+        inherit system;
       };
-      
-      environment.shells = [ pkgs.fish ];
 
-      system.primaryUser = username;
-
-      homebrew = {
-        enable = true;
-
-        casks = [
-          "cursor"
-          "discord"
-          "drawio"
-          "figma"
-          "fork"
-          "ghostty"
-          "karabiner-elements"
-          "notion-calendar"
-          "notion"
-          "orbstack"
-          "raycast"
-          "slack"
-          "vlc"
-          "zoom"
-        ];
-      };
-    };
-  in
-  {
-    # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#nakano-mbp
-    darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
-      inherit system pkgs;
-      modules = [
-        configuration
-        home-manager.darwinModules.home-manager
+      configuration =
+        { pkgs, ... }:
         {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.users.${username} = {
-            home = {
-              stateVersion = "26.05";
-              username = username;
-              homeDirectory = "/Users/${username}";
+          # List packages installed in system profile. To search by name, run:
+          # $ nix-env -qaP | grep wget
+          environment.systemPackages = [
+            pkgs.vim
+          ];
 
-              packages = with pkgs; [
-                bat
-                eza
-                fd
-                fzf
-                ghq
-                gnupg
-                helix
-                ijq
-                jq
-                nixd
-                nushell
-                ripgrep
-                tldr
-                zellij
-              ];
-            };
+          # Necessary for using flakes on this system.
+          nix.settings.experimental-features = "nix-command flakes";
+
+          # Enable alternative shell support in nix-darwin.
+          programs.fish.enable = true;
+
+          # Set Git commit hash for darwin-version.
+          system.configurationRevision = self.rev or self.dirtyRev or null;
+
+          # Used for backwards compatibility, please read the changelog before changing.
+          # $ darwin-rebuild changelog
+          system.stateVersion = 6;
+
+          # The platform the configuration will be used on.
+          nixpkgs.hostPlatform = system;
+
+          users.users.${username} = {
+            shell = pkgs.fish;
+            home = "/Users/${username}";
           };
-        }
-      ];
+
+          environment.shells = [ pkgs.fish ];
+
+          system.primaryUser = username;
+
+          homebrew = {
+            enable = true;
+
+            casks = [
+              "cursor"
+              "discord"
+              "drawio"
+              "figma"
+              "fork"
+              "ghostty"
+              "karabiner-elements"
+              "notion-calendar"
+              "notion"
+              "orbstack"
+              "raycast"
+              "slack"
+              "vlc"
+              "zoom"
+            ];
+          };
+        };
+    in
+    {
+      # Build darwin flake using:
+      # $ darwin-rebuild build --flake .#nakano-mbp
+      darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
+        inherit system pkgs;
+        modules = [
+          configuration
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.${username} = {
+              home = {
+                stateVersion = "26.05";
+                username = username;
+                homeDirectory = "/Users/${username}";
+
+                packages = with pkgs; [
+                  bat
+                  eza
+                  fd
+                  fzf
+                  ghq
+                  gnupg
+                  helix
+                  ijq
+                  jq
+                  nixd
+                  nixfmt
+                  nushell
+                  ripgrep
+                  tldr
+                  zellij
+                ];
+              };
+            };
+          }
+        ];
+      };
     };
-  };
 }
