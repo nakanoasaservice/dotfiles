@@ -20,7 +20,6 @@
     hostname = "nakano-mbp";
     username = "nakano";
     system = "aarch64-darwin";
-    home = "Users/${username}";
 
     pkgs = import nixpkgs {
       inherit system;
@@ -51,7 +50,7 @@
 
       users.users.${username} = {
         shell = pkgs.fish;
-        home = "/Users/nakano";
+        home = "/Users/${username}";
       };
       
       environment.shells = [ pkgs.fish ];
@@ -72,7 +71,7 @@
             home = {
               stateVersion = "26.05";
               username = username;
-              homeDirectory = "/Users/nakano";
+              homeDirectory = "/Users/${username}";
 
               packages = with pkgs; [
                 ripgrep
