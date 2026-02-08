@@ -46,7 +46,7 @@
   in
   {
     # Build darwin flake using:
-    # $ darwin-rebuild build --flake .#simple
+    # $ darwin-rebuild build --flake .#nakano-mbp
     darwinConfigurations."nakano-mbp" = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
