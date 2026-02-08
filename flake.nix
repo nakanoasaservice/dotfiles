@@ -61,6 +61,7 @@
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#nakano-mbp
     darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
+      inherit system pkgs;
       modules = [
         configuration
         home-manager.darwinModules.home-manager
@@ -72,6 +73,19 @@
               stateVersion = "26.05";
               username = username;
               homeDirectory = "/Users/nakano";
+
+              packages = with pkgs; [
+                ripgrep
+                nushell
+                bat
+                fd
+                fzf
+                ghq
+                zellij
+                tldr
+                helix
+                gnupg
+              ];
             };
           };
         }
