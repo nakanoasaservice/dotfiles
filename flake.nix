@@ -74,18 +74,18 @@
               homeDirectory = "/Users/${username}";
 
               packages = with pkgs; [
-                ripgrep
-                nushell
                 bat
                 fd
                 fzf
                 ghq
-                zellij
-                tldr
-                helix
                 gnupg
-                jq
+                helix
                 ijq
+                jq
+                nushell
+                ripgrep
+                tldr
+                zellij
               ];
             };
           };
