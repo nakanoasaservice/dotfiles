@@ -17,6 +17,15 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
   let
+    hostname = "nakano-mbp";
+    username = "nakano";
+    system = "aarch64-darwin";
+    home = "/Users/${username}";
+
+    pkgs = import nixpkgs {
+      inherit system;
+    };
+
     configuration = { pkgs, ... }: {
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
@@ -38,16 +47,16 @@
       system.stateVersion = 6;
 
       # The platform the configuration will be used on.
-      nixpkgs.hostPlatform = "aarch64-darwin";
+      nixpkgs.hostPlatform = system;
 
-      users.users.nakano.shell = pkgs.fish;
+      users.users.${username}.shell = pkgs.fish;
       environment.shells = [ pkgs.fish ];
     };
   in
   {
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#nakano-mbp
-    darwinConfigurations."nakano-mbp" = nix-darwin.lib.darwinSystem {
+    darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
       modules = [
         configuration
         home-manager.darwinModules.home-manager
