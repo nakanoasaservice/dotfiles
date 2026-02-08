@@ -75,6 +75,7 @@
 
               packages = with pkgs; [
                 bat
+                eza
                 fd
                 fzf
                 ghq
