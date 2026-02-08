@@ -54,6 +54,24 @@
       };
       
       environment.shells = [ pkgs.fish ];
+
+      system.primaryUser = username;
+
+      homebrew = {
+        enable = true;
+
+        casks = [
+          "discord"
+          "figma"
+          "ghostty"
+          "karabiner-elements"
+          "notion-calendar"
+          "notion"
+          "orbstack"
+          "raycast"
+          "slack"
+        ];
+      };
     };
   in
   {
