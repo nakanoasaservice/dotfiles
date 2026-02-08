@@ -20,7 +20,7 @@
     hostname = "nakano-mbp";
     username = "nakano";
     system = "aarch64-darwin";
-    home = "/Users/${username}";
+    home = "Users/${username}";
 
     pkgs = import nixpkgs {
       inherit system;
@@ -49,7 +49,11 @@
       # The platform the configuration will be used on.
       nixpkgs.hostPlatform = system;
 
-      users.users.${username}.shell = pkgs.fish;
+      users.users.${username} = {
+        shell = pkgs.fish;
+        home = "/Users/nakano";
+      };
+      
       environment.shells = [ pkgs.fish ];
     };
   in
@@ -60,6 +64,17 @@
       modules = [
         configuration
         home-manager.darwinModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.${username} = {
+            home = {
+              stateVersion = "26.05";
+              username = username;
+              homeDirectory = "/Users/nakano";
+            };
+          };
+        }
       ];
     };
   };
