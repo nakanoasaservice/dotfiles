@@ -61,8 +61,11 @@
         enable = true;
 
         casks = [
+          "cursor"
           "discord"
+          "drawio"
           "figma"
+          "fork"
           "ghostty"
           "karabiner-elements"
           "notion-calendar"
@@ -70,6 +73,8 @@
           "orbstack"
           "raycast"
           "slack"
+          "vlc"
+          "zoom"
         ];
       };
     };
