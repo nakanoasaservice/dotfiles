@@ -99,6 +99,12 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${username} = {
+
+              programs.helix = {
+                enable = true;
+                defaultEditor = true;
+              };
+
               home = {
                 stateVersion = "26.05";
                 username = username;
@@ -111,7 +117,6 @@
                   fzf
                   ghq
                   gnupg
-                  helix
                   ijq
                   jq
                   nixd
