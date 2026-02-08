@@ -106,6 +106,7 @@
                 helix
                 ijq
                 jq
+                nixd
                 nushell
                 ripgrep
                 tldr
