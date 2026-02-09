@@ -107,7 +107,9 @@
                 enable = true;
                 shellInit = ''
                   string match -q "$TERM_PROGRAM" cursor
-                  and . (/usr/local/bin/cursor --locate-shell-integration-path fish)
+                    and . (/usr/local/bin/cursor --locate-shell-integration-path fish)
+                  
+                  /Users/${username}/.local/bin/mise activate fish | source
                 '';
               };
 
