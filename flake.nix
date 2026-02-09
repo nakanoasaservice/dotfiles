@@ -98,7 +98,18 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+
+            home-manager.backupFileExtension = "bak";
+
             home-manager.users.${username} = {
+
+              programs.fish = {
+                enable = true;
+                shellInit = ''
+                  string match -q "$TERM_PROGRAM" cursor
+                  and . (/usr/local/bin/cursor --locate-shell-integration-path fish)
+                '';
+              };
 
               programs.helix = {
                 enable = true;
