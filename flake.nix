@@ -83,6 +83,7 @@
             enable = true;
 
             casks = [
+              "1password"
               "cursor"
               "discord"
               "drawio"
