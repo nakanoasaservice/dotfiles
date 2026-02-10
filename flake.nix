@@ -69,6 +69,16 @@
             udev-gothic
           ];
 
+          system.defaults.finder = {
+            AppleShowAllExtensions = true;
+            ShowPathbar = true;
+          };
+
+          system.defaults.dock = {
+            autohide = true;
+            orientation = "bottom";
+          };
+
           homebrew = {
             enable = true;
 

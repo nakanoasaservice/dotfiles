@@ -1,5 +1,6 @@
 {
   "words": [
+    "autohide",
     "ghostty",
     "karabiner",
     "nakano",
@@ -7,6 +8,7 @@
     "nixfmt",
     "nixpkgs",
     "orbstack",
+    "pathbar",
     "pkgs"
   ]
 }
