@@ -111,6 +111,13 @@
                   
                   /Users/${username}/.local/bin/mise activate fish | source
                 '';
+
+                plugins = [
+                  {
+                    name = "fish-bd";
+                    src = pkgs.fishPlugins.fish-bd.src;
+                  }
+                ];
               };
 
               programs.helix = {
