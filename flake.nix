@@ -65,6 +65,10 @@
 
           system.primaryUser = username;
 
+          fonts.packages = with pkgs; [
+            udev-gothic
+          ];
+
           homebrew = {
             enable = true;
 
