@@ -147,6 +147,7 @@
 
                 packages = with pkgs; [
                   bat
+                  difftastic
                   eza
                   fd
                   fzf
