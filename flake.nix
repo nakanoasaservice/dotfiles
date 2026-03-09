@@ -90,6 +90,7 @@
               "figma"
               "fork"
               "ghostty"
+              "google-japanese-ime"
               "karabiner-elements"
               "notion-calendar"
               "notion"
@@ -146,7 +147,9 @@
                 homeDirectory = "/Users/${username}";
 
                 packages = with pkgs; [
+                  ast-grep
                   bat
+                  bombardier
                   difftastic
                   eza
                   fd
