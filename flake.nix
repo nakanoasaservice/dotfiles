@@ -79,6 +79,8 @@
             orientation = "bottom";
           };
 
+          system.defaults.trackpad.TrackpadThreeFingerDrag = true;
+
           homebrew = {
             enable = true;
 

@@ -10,6 +10,7 @@
     "nixpkgs",
     "orbstack",
     "pathbar",
-    "pkgs"
+    "pkgs",
+    "trackpad"
   ]
 }
