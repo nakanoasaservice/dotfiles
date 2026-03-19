@@ -171,6 +171,7 @@
                   gnupg
                   ijq
                   jq
+                  mise
                   nixd
                   nixfmt
                   nushell
