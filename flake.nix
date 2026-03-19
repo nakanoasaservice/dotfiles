@@ -92,6 +92,7 @@
             casks = [
               "1password"
               "cursor"
+              "google-chrome"
               "discord"
               "drawio"
               "figma"
