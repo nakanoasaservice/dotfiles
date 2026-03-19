@@ -133,7 +133,7 @@
                   string match -q "$TERM_PROGRAM" cursor
                     and . (/usr/local/bin/cursor --locate-shell-integration-path fish)
                   
-                  /Users/${username}/.local/bin/mise activate fish | source
+                  /etc/profiles/per-user/${username}/bin/mise activate fish | source
                   fish_add_path "$HOME/.moon/bin"
                 '';
 
