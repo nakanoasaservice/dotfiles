@@ -105,6 +105,7 @@
               "orbstack"
               "raycast"
               "slack"
+              "thebrowsercompany-dia"
               "vlc"
               "zoom"
             ];
