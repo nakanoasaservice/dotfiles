@@ -142,6 +142,10 @@
                     name = "fish-bd";
                     src = pkgs.fishPlugins.fish-bd.src;
                   }
+                  {
+                    name = "tide";
+                    src = pkgs.fishPlugins.tide.src;
+                  }
                 ];
               };
 
