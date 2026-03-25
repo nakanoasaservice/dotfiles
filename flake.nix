@@ -99,6 +99,7 @@
               "google-chrome"
               "discord"
               "drawio"
+              "firefox"
               "figma"
               "fork"
               "ghostty"
