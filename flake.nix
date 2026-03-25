@@ -82,8 +82,8 @@
           system.defaults.trackpad.TrackpadThreeFingerDrag = true;
 
           system.defaults.NSGlobalDomain = {
-            KeyRepeat = 1; # 最速（0が理論上最速だが1で十分速い）
-            InitialKeyRepeat = 10; # リピート開始までの遅延を短く
+            KeyRepeat = 2;
+            InitialKeyRepeat = 15;
           };
 
           homebrew = {
