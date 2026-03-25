@@ -79,7 +79,10 @@
             orientation = "bottom";
           };
 
-          system.defaults.trackpad.TrackpadThreeFingerDrag = true;
+          system.defaults.trackpad = {
+            Clicking = true;
+            TrackpadThreeFingerDrag = true;
+          };
 
           system.defaults.NSGlobalDomain = {
             KeyRepeat = 2;
