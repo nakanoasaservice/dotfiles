@@ -174,6 +174,7 @@
                   eza
                   fd
                   fzf
+                  gh
                   ghq
                   gnupg
                   ijq
