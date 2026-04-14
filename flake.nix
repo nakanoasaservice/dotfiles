@@ -177,6 +177,7 @@
                   gh
                   ghq
                   gnupg
+                  google-cloud-sdk
                   ijq
                   jq
                   mise
