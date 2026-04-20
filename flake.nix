@@ -110,7 +110,7 @@
               "orbstack"
               "raycast"
               "slack"
-              "tailscale"
+              "tailscale-app"
               # "thebrowsercompany-dia" # なぜかダウンロードできない
               "vlc"
               "zoom"
