@@ -171,6 +171,7 @@
                   bat
                   bombardier
                   difftastic
+                  cmake
                   eza
                   fd
                   fzf
