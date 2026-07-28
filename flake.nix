@@ -185,6 +185,7 @@
                   nixd
                   nixfmt
                   nushell
+                  qrencode
                   ripgrep
                   tldr
                   zellij
