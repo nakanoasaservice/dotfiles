@@ -38,6 +38,7 @@
           # $ nix-env -qaP | grep wget
           environment.systemPackages = [
             pkgs.vim
+            pkgs.secretive
           ];
 
           # Necessary for using flakes on this system.
@@ -194,7 +195,6 @@
                   nushell
                   qrencode
                   ripgrep
-                  secretive
                   tldr
                   zellij
                 ];
