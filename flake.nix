@@ -145,7 +145,6 @@
                     and . (/usr/local/bin/cursor --locate-shell-integration-path fish)
                   
                   /etc/profiles/per-user/${username}/bin/mise activate fish | source
-                  fish_add_path "$HOME/.moon/bin"
                 '';
 
                 plugins = [
@@ -169,6 +168,8 @@
                 stateVersion = "26.05";
                 username = username;
                 homeDirectory = "/Users/${username}";
+
+                sessionPath = [ "$HOME/.moon/bin" ];
 
                 sessionVariables = {
                   SSH_AUTH_SOCK = "/Users/${username}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh";
