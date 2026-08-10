@@ -159,7 +159,7 @@
                 ];
               };
 
-              programs.helix = {
+              programs.fresh-editor = {
                 enable = true;
                 defaultEditor = true;
               };
