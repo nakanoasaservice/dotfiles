@@ -147,6 +147,10 @@
                   /etc/profiles/per-user/${username}/bin/mise activate fish | source
                 '';
 
+                shellAliases = {
+                  vim = "fresh";
+                };
+
                 plugins = [
                   {
                     name = "fish-bd";
