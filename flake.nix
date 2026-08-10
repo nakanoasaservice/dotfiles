@@ -134,6 +134,9 @@
 
             home-manager.users.${username} = {
 
+              # fish defaults this to true, but man.package is null on Darwin.
+              programs.man.generateCaches = false;
+
               programs.fish = {
                 enable = true;
                 shellInit = ''
@@ -166,6 +169,10 @@
                 username = username;
                 homeDirectory = "/Users/${username}";
 
+                sessionVariables = {
+                  SSH_AUTH_SOCK = "/Users/${username}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh";
+                };
+
                 packages = with pkgs; [
                   ast-grep
                   bat
@@ -187,6 +194,7 @@
                   nushell
                   qrencode
                   ripgrep
+                  secretive
                   tldr
                   zellij
                 ];
