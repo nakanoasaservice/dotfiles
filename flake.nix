@@ -25,6 +25,8 @@
     let
       hostname = "nakano-mbp";
       username = "nakano";
+      gitName = "Nakano as a Service";
+      gitEmail = "nakanoasaservice@gmail.com";
       system = "aarch64-darwin";
 
       pkgs = import nixpkgs {
@@ -168,6 +170,44 @@
                 defaultEditor = true;
               };
 
+              programs.gh = {
+                enable = true;
+                gitCredentialHelper.enable = true;
+              };
+
+              programs.git = {
+                enable = true;
+
+                ignores = [
+                  "**/.claude/settings.local.json"
+                ];
+
+                signing = {
+                  format = "ssh";
+                  signByDefault = true;
+                };
+
+                settings = {
+                  user = {
+                    name = gitName;
+                    email = gitEmail;
+                  };
+
+                  core.ignorecase = false;
+
+                  diff.tool = "difftastic";
+
+                  difftool = {
+                    prompt = false;
+                    difftastic.cmd = "${pkgs.difftastic}/bin/difft \"$LOCAL\" \"$REMOTE\"";
+                  };
+
+                  pager.difftool = true;
+
+                  gpg.ssh.allowedSignersFile = "~/.gitallowedsigners";
+                };
+              };
+
               home = {
                 stateVersion = "26.05";
                 username = username;
@@ -188,7 +228,6 @@
                   eza
                   fd
                   fzf
-                  gh
                   ghq
                   gnupg
                   google-cloud-sdk
