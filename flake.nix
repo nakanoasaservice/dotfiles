@@ -27,6 +27,8 @@
       username = "nakano";
       gitName = "Nakano as a Service";
       gitEmail = "nakanoasaservice@gmail.com";
+
+      secretiveSocket = "/Users/${username}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh";
       system = "aarch64-darwin";
 
       pkgs = import nixpkgs {
@@ -208,6 +210,15 @@
                 };
               };
 
+              programs.ssh = {
+                enable = true;
+                enableDefaultConfig = false;
+                includes = [ "~/.orbstack/ssh/config" ];
+                settings."*" = {
+                  IdentityAgent = secretiveSocket;
+                };
+              };
+
               home = {
                 stateVersion = "26.05";
                 username = username;
@@ -216,7 +227,7 @@
                 sessionPath = [ "$HOME/.moon/bin" ];
 
                 sessionVariables = {
-                  SSH_AUTH_SOCK = "/Users/${username}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh";
+                  SSH_AUTH_SOCK = secretiveSocket;
                 };
 
                 packages = with pkgs; [
