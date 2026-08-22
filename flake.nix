@@ -106,8 +106,8 @@
               "cursor"
               "google-chrome"
               "discord"
-              # "drawio"
-              # "firefox"
+              "drawio"
+              "firefox"
               "figma"
               "fork"
               "ghostty"
@@ -121,7 +121,7 @@
               "slack"
               "tailscale-app"
               # "thebrowsercompany-dia" # なぜかダウンロードできない
-              # "vlc"
+              "vlc"
               "zoom"
             ];
           };
