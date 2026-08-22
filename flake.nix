@@ -102,7 +102,6 @@
             enable = true;
 
             casks = [
-              "1password"
               "coteditor"
               "cursor"
               "google-chrome"
