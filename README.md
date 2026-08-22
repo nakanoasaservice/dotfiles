@@ -20,9 +20,24 @@ nix --version
 
 既に Nix や Lix が入っているマシンでは、上書きインストールではなくアップグレードになることがあります。詳しくは [Installing Lix](https://lix.systems/install/) の「Existing Installs」を参照してください。
 
+## Homebrewのインストール
+
+`flake.nix` の `homebrew` 設定（caskの管理）は、nix-darwinがHomebrew自体をインストールしてくれるわけではなく、既存のHomebrewを操作するだけです。まだ入っていない場合は先に[公式サイト](https://brew.sh/)の手順でインストールしてください。
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+表示に従って進める（`sudo` が求められることがあります）。完了後、次で確認します。
+
+```bash
+brew --version
+```
+
 ## 前提
 
 - Nix が入っていること（flakes 有効。`flake.nix` で `nix-command flakes` を要求）
+- Homebrew が入っていること（`flake.nix` の `homebrew.casks` を適用するため）
 - このリポジトリをチェックアウトしたディレクトリに `cd` してからコマンドを実行すること
 
 ## 適用（この Mac に反映）
