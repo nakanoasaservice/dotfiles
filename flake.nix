@@ -117,6 +117,7 @@
               "notion-calendar"
               "notion"
               "orbstack"
+              "proton-pass"
               "raycast"
               "slack"
               "tailscale-app"
