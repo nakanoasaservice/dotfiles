@@ -34,7 +34,6 @@
       gitName = "Nakano as a Service";
       gitEmail = "nakanoasaservice@gmail.com";
 
-      secretiveSocket = "/Users/${username}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh";
       system = "aarch64-darwin";
 
       pkgs = import nixpkgs {
@@ -48,7 +47,6 @@
           # $ nix-env -qaP | grep wget
           environment.systemPackages = with pkgs; [
             vim
-            secretive
           ];
 
           # Necessary for using flakes on this system.
@@ -229,9 +227,6 @@
                 enable = true;
                 enableDefaultConfig = false;
                 includes = [ "~/.orbstack/ssh/config" ];
-                settings."*" = {
-                  IdentityAgent = secretiveSocket;
-                };
               };
 
               home = {
@@ -240,10 +235,6 @@
                 homeDirectory = "/Users/${username}";
 
                 sessionPath = [ "$HOME/.moon/bin" ];
-
-                sessionVariables = {
-                  SSH_AUTH_SOCK = secretiveSocket;
-                };
 
                 packages = with pkgs; [
                   ast-grep

@@ -61,8 +61,8 @@ ssh -T git@github.com
 git commit --allow-empty -m "test signed commit" && git log --show-signature -1
 ```
 
-- 既存の [Secretive](https://github.com/maxgoedjen/secretive) の鍵とは別物で、Secretive側の設定・鍵はそのまま残ります（併用可能）。
 - `nix-secure-enclave-key` は macOS の CryptoTokenKit / Secure Enclave を直接使うため、秘密鍵の実体はチップの外に一度も出ません。`~/.ssh/id_enclave_key` は鍵そのものではなく、どのSecure Enclave identityを使うかを示す非秘密の参照ファイルです（削除すると設定が壊れるので消さないこと）。
+- 以前使っていた [Secretive](https://github.com/maxgoedjen/secretive) は動作確認後に廃止し、この鍵に一本化しています。
 - 詳細: [ryoppippi/nix-secure-enclave-key](https://github.com/ryoppippi/nix-secure-enclave-key)
 
 ## flake の入力を更新
