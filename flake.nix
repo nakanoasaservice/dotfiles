@@ -218,8 +218,6 @@
                   };
 
                   pager.difftool = true;
-
-                  gpg.ssh.allowedSignersFile = "~/.gitallowedsigners";
                 };
               };
 
