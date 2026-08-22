@@ -120,7 +120,7 @@
               "raycast"
               "slack"
               "tailscale-app"
-              # "thebrowsercompany-dia" # なぜかダウンロードできない
+              "thebrowsercompany-dia" # なぜかダウンロードできない
               "vlc"
               "zoom"
             ];
