@@ -13,6 +13,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-secure-enclave-key = {
+      url = "github:ryoppippi/nix-secure-enclave-key";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -21,6 +26,7 @@
       nix-darwin,
       nixpkgs,
       home-manager,
+      nix-secure-enclave-key,
     }:
     let
       hostname = "nakano-mbp";
@@ -103,8 +109,8 @@
               "cursor"
               "google-chrome"
               "discord"
-              "drawio"
-              "firefox"
+              # "drawio"
+              # "firefox"
               "figma"
               "fork"
               "ghostty"
@@ -117,7 +123,7 @@
               "slack"
               "tailscale-app"
               # "thebrowsercompany-dia" # なぜかダウンロードできない
-              "vlc"
+              # "vlc"
               "zoom"
             ];
           };
@@ -138,9 +144,18 @@
             home-manager.backupFileExtension = "bak";
 
             home-manager.users.${username} = {
+              imports = [ nix-secure-enclave-key.homeManagerModules.default ];
 
               # fish defaults this to true, but man.package is null on Darwin.
               programs.man.generateCaches = false;
+
+              programs.nix-secure-enclave-key = {
+                enable = true;
+                identities.github = {
+                  keyFile = "~/.ssh/id_enclave_key";
+                };
+                signingIdentity = "github";
+              };
 
               programs.fish = {
                 enable = true;
