@@ -1,5 +1,37 @@
 {
   "nodes": {
+    "fish-cdf": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775552396,
+        "narHash": "sha256-YZgN1JLSVC3lCcoz+MVoWGHWtLm9Lcp2kcliRsx2tV4=",
+        "owner": "nakanoasaservice",
+        "repo": "fish-cdf",
+        "rev": "20403580d5a7bee2936a3c808173e662521d1944",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nakanoasaservice",
+        "repo": "fish-cdf",
+        "type": "github"
+      }
+    },
+    "fish-ghq": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1626409029,
+        "narHash": "sha256-6b1zmjtemNLNPx4qsXtm27AbtjwIZWkzJAo21/aVZzM=",
+        "owner": "decors",
+        "repo": "fish-ghq",
+        "rev": "cafaaabe63c124bf0714f89ec715cfe9ece87fa2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "decors",
+        "repo": "fish-ghq",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -59,6 +91,22 @@
         "type": "github"
       }
     },
+    "nix-env-fish": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1638213644,
+        "narHash": "sha256-RG/0rfhgq6aEKNZ0XwIqOaZ6K5S4+/Y5EEMnIdtfPhk=",
+        "owner": "lilyball",
+        "repo": "nix-env.fish",
+        "rev": "7b65bd228429e852c8fdfa07601159130a818cfa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "lilyball",
+        "repo": "nix-env.fish",
+        "type": "github"
+      }
+    },
     "nix-secure-enclave-key": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -113,8 +161,11 @@
     },
     "root": {
       "inputs": {
+        "fish-cdf": "fish-cdf",
+        "fish-ghq": "fish-ghq",
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
+        "nix-env-fish": "nix-env-fish",
         "nix-secure-enclave-key": "nix-secure-enclave-key",
         "nixpkgs": "nixpkgs"
       }

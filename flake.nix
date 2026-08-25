@@ -18,6 +18,21 @@
       url = "github:ryoppippi/nix-secure-enclave-key";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    fish-ghq = {
+      url = "github:decors/fish-ghq";
+      flake = false;
+    };
+
+    nix-env-fish = {
+      url = "github:lilyball/nix-env.fish";
+      flake = false;
+    };
+
+    fish-cdf = {
+      url = "github:nakanoasaservice/fish-cdf";
+      flake = false;
+    };
   };
 
   outputs =
@@ -27,6 +42,9 @@
       nixpkgs,
       home-manager,
       nix-secure-enclave-key,
+      fish-ghq,
+      nix-env-fish,
+      fish-cdf,
     }:
     let
       hostname = "nakano-mbp";
@@ -180,6 +198,18 @@
                   {
                     name = "tide";
                     src = pkgs.fishPlugins.tide.src;
+                  }
+                  {
+                    name = "fish-ghq";
+                    src = fish-ghq;
+                  }
+                  {
+                    name = "nix-env.fish";
+                    src = nix-env-fish;
+                  }
+                  {
+                    name = "fish-cdf";
+                    src = fish-cdf;
                   }
                 ];
               };
