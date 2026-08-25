@@ -86,11 +86,15 @@
           system.defaults.dock = {
             autohide = true;
             orientation = "bottom";
+            showAppExposeGestureEnabled = true;
           };
 
           system.defaults.trackpad = {
             Clicking = true;
             TrackpadThreeFingerDrag = true;
+            TrackpadFourFingerVertSwipeGesture = 2;
+            # 3本指ドラッグと競合するため、3本指の縦スワイプは無効化
+            TrackpadThreeFingerVertSwipeGesture = 0;
           };
 
           system.defaults.NSGlobalDomain = {
