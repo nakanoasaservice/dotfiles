@@ -188,6 +188,7 @@
 
                 shellAliases = {
                   vim = "fresh";
+                  f = "open .";
                 };
 
                 plugins = [
