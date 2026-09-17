@@ -128,6 +128,10 @@
                 name = "abue-ammar/tinycast";
                 trusted = true;
               }
+              {
+                name = "stablyai/orca";
+                trusted = true;
+              }
             ];
 
             casks = [
@@ -145,6 +149,7 @@
               "notion-calendar"
               "notion"
               "orbstack"
+              "stablyai/orca/orca"
               "proton-pass"
               "abue-ammar/tinycast/tinycast"
               "slack"
