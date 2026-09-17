@@ -123,6 +123,13 @@
           homebrew = {
             enable = true;
 
+            taps = [
+              {
+                name = "abue-ammar/tinycast";
+                trusted = true;
+              }
+            ];
+
             casks = [
               "coteditor"
               "cursor"
@@ -139,7 +146,7 @@
               "notion"
               "orbstack"
               "proton-pass"
-              "raycast"
+              "abue-ammar/tinycast/tinycast"
               "slack"
               "tailscale-app"
               "thebrowsercompany-dia" # なぜかダウンロードできない
