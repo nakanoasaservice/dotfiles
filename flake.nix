@@ -83,7 +83,10 @@
           # The platform the configuration will be used on.
           nixpkgs.hostPlatform = system;
 
+          users.knownUsers = [ username ];
+
           users.users.${username} = {
+            uid = 501;
             shell = pkgs.fish;
             home = "/Users/${username}";
           };
