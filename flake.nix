@@ -135,6 +135,8 @@
             ];
 
             casks = [
+              "chatgpt"
+              "claude"
               "coteditor"
               "cursor"
               "google-chrome"
